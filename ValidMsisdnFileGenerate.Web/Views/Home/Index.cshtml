@@ -1,0 +1,45 @@
+﻿@model ValidMsisdnFileGenerate.Web.Models.HomeViewModel
+@{
+    ViewData["Title"] = "This is noddy";
+}
+
+<form asp-controller="Home" asp-action="GenerateMsisdn">
+    @if (!string.IsNullOrEmpty(Model?.ErrorMessage))
+    {
+        <div class="alert alert-danger" role="alert">
+            @Model.ErrorMessage
+        </div>
+    }
+
+    <div class="form-group">
+        <label for="msisdnsCount">Number of MSISDN to generate:</label>
+        <input type="number" class="form-control" id="msisdnCount" name="msisdnCount">
+    </div>
+    
+    <div class="form-group">
+        <label for="msisdnsCount">Also include these numbers:</label>
+        <textarea class="form-control" name="additionalMsisdns"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="filename">Filename</label>
+        <input type="text" class="form-control" id="filename" name="filename" placeholder="leave empty to auto name">
+    </div>
+
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="randomData" name="randomData" value="true" checked/>
+        <label class="form-check-label" for="randomData">Include random data</label>
+    </div>
+    
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="prefixPlus" name="prefixPlus" value="true" checked/>
+        <label class="form-check-label" for="prefixPlus">Prefix plus</label>
+    </div>
+    
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="includeBadMsisdn" name="includeBadMsisdn" value="true" checked/>
+        <label class="form-check-label" for="includeBadMsisdn">Include bad MSISDN (this is random - not guaranteed)</label>
+    </div>
+
+    <button class="btn btn-success" type="submit">Download</button>
+</form>
