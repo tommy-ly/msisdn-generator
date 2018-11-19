@@ -1,4 +1,4 @@
-#TODO
+# TODO
 
 * Add support for different country codes
 * Generate bad MSISDN only
@@ -8,3 +8,4 @@
 * Tests
 * Guarantee bad MSISDN
 * Add different types of bad MSISDN - e.g. text only, not long enough
+* Add more useful things I didn't think about
